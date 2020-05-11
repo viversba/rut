@@ -280,7 +280,6 @@ defmodule Rut.Extract do
         [matched] ->
           phone_number_2 = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :phone_number_2, phone_number_2)}
       end
   end
@@ -299,7 +298,6 @@ defmodule Rut.Extract do
         [matched] ->
           main_activity = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :main_activity, main_activity)}
       end
   end
@@ -318,7 +316,6 @@ defmodule Rut.Extract do
         [matched] ->
           secondary_activity = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :secondary_activity, [secondary_activity])}
       end
   end
