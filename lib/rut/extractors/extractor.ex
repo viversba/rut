@@ -319,7 +319,7 @@ defmodule Rut.Extract do
           secondary_activity = content(matched)
             |> String.replace(" ", "")
             |> String.to_integer
-          {start_index, titles, values, Map.put(extract_info, :secondary_activity, secondary_activity)}
+          {start_index, titles, values, Map.put(extract_info, :secondary_activity, [secondary_activity])}
       end
   end
 
