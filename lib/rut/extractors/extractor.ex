@@ -336,7 +336,7 @@ defmodule Rut.Extract do
           responsibilities = Enum.map(matched, fn respons -> 
             [code, responsibility] = content(respons)
               |> String.split("-", parts: 2)
-            {code, responsibility}
+            {"O-"<>code, responsibility}
           end)
           {start_index, titles, values, Map.put(extract_info, :responsibilities, responsibilities)}
       end
