@@ -35,7 +35,7 @@ defmodule Rut do
     titles = page1
       |> Enum.slice(0..start_index)
       |> Enum.sort_by( fn element ->
-        {x, y} = get_xy_pos(element)
+        {x, y} = Extract.get_xy_pos(element)
         y*width + x
       end)
     
@@ -47,7 +47,7 @@ defmodule Rut do
     values = page1
       |> Enum.slice(start_index..-1)
       |> Enum.sort_by( fn element ->
-        {x, y} = get_xy_pos(element)
+        {x, y} = Extract.get_xy_pos(element)
         y*width + x
       end)
 
@@ -81,23 +81,6 @@ defmodule Rut do
     #   |> Extract.responsibilities
 
     extract_data
-  end
-
-  def get_xy_pos({_, properties, _} = element) do
-    [{_, styles}] = properties
-    top = String.split(styles, ";")
-      |> Enum.at(-2)
-      |> String.split(":")
-      |> Enum.at(-1)
-      |> String.replace(~r/[^\d]/, "")
-      |> String.to_integer
-    left = String.split(styles, ";")
-      |> Enum.at(-1)
-      |> String.split(":")
-      |> Enum.at(-1)
-      |> String.replace(~r/[^\d]/, "")
-      |> String.to_integer
-    {left, top}
   end
 
   def parse_name(name) do

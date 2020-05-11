@@ -10,6 +10,9 @@ defmodule Rut.Extract do
     if index < 130, do: index, else: raise "Start index not found, are you sure you are looking in the first page?"
   end
 
+  @doc """
+    Extracts nit value. Searches fields within 90pts in x and 20pts in y
+  """
   def nit({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 5)
       |> get_xy_pos()
@@ -26,6 +29,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts verification digit value. Searches fields within 20pts in x and 20pts in y
+  """
   def dv({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 6)
       |> get_xy_pos()
@@ -42,6 +48,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts person_type value. Searches fields within 20pts in x and 20pts in y
+  """
   def person_type({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 11)
       |> get_xy_pos()
@@ -56,6 +65,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts person type code value. Searches fields within 20pts in x and 20pts in y
+  """
   def person_type_code({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 11)
       |> get_xy_pos()
@@ -73,6 +85,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts business name value. Searches fields within 10pts in x and 20pts in y
+  """
   def business_name({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 23)
       |> get_xy_pos()
@@ -87,6 +102,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts country value. Searches fields within 10pts in x and 20pts in y
+  """
   def country({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 27)
       |> get_xy_pos()
@@ -101,6 +119,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts country code value. Searches fields within 150pts in x and 20pts in y
+  """
   def country_code({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 27)
       |> get_xy_pos()
@@ -118,6 +139,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts state type code value. Searches fields within 10pts in x and 20pts in y
+  """
   def state({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 28)
       |> get_xy_pos()
@@ -132,6 +156,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts state code value. Searches fields within 190pts in x and 20pts in y
+  """
   def state_code({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 28)
       |> get_xy_pos()
@@ -149,6 +176,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts city value. Searches fields within 10pts in x and 20pts in y
+  """
   def city({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 29)
       |> get_xy_pos()
@@ -163,6 +193,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts city code value. Searches fields within 190pts in x and 20pts in y
+  """
   def city_code({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 29)
       |> get_xy_pos()
@@ -180,6 +213,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts address value. Searches fields within 20pts in x and 20pts in y
+  """
   def address({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 30)
       |> get_xy_pos()
@@ -194,6 +230,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts email value. Searches fields within 20pts in x and 20pts in y
+  """
   def email({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 31)
       |> get_xy_pos()
@@ -208,6 +247,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts phone number 1 value. Searches fields within 100pts in x and 20pts in y
+  """
   def phone_number_1({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 33)
       |> get_xy_pos()
@@ -224,6 +266,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts phone number 2 value. Searches fields within 100pts in x and 20pts in y
+  """
   def phone_number_2({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 34)
       |> get_xy_pos()
@@ -240,6 +285,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts main activity value. Searches fields within 20pts in x and 20pts in y
+  """
   def main_activity({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 43)
       |> get_xy_pos()
@@ -256,6 +304,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts secondary activity value. Searches fields within 20pts in x and 20pts in y
+  """
   def secondary_activity({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 45)
       |> get_xy_pos()
@@ -272,6 +323,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Extracts responsibilities value. Searches fields within 600pts in x and 100pts in y
+  """
   def responsibilities({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 78)
       |> get_xy_pos()
@@ -291,6 +345,9 @@ defmodule Rut.Extract do
       end
   end
 
+  @doc """
+    Finds matcing element in specified range
+  """
   defp find_match(values, posX, posY, errorX, errorY) do
     Enum.filter(values, fn element -> 
       cont = content(element)
@@ -302,17 +359,9 @@ defmodule Rut.Extract do
     end)
   end
 
-  # defp find__activity(values, posX, posY, errorX, errorY) do
-  #   Enum.filter(values, fn element -> 
-  #     cont = content(element)
-  #       # |> IO.inspect(label: "CONTENT")
-  #     {x, y} = get_xy_pos(element)
-  #     x_distance = x-posX
-  #     y_distance = y-posY
-  #     x_distance >= 0 and x_distance < errorX and y_distance >= 0 and y_distance < errorY and !is_nil(cont)
-  #   end)
-  # end
-
+  @doc """
+    Removes <img> tags from final html document
+  """
   def delete_images(document) do
     Enum.filter(document, fn element -> 
       element
@@ -320,6 +369,9 @@ defmodule Rut.Extract do
     end)
   end
 
+  @doc """
+    Extracts a page from a document
+  """
   def page(document, number) do
     try do
       page = Floki.find(document, "#page#{number}") 
@@ -332,6 +384,9 @@ defmodule Rut.Extract do
     end
   end
 
+  @doc """
+    Returns the content of a given element on the array
+  """
   def content({_,_,[{"span",_,[content]}]} = element) do
     content
   end
@@ -359,6 +414,9 @@ defmodule Rut.Extract do
     {left, top}
   end
 
+  @doc """
+    Extracts xy coordinates of an element in the document
+  """
   def get_xy_pos({_, [{_, styles}], _}) do
     top = String.split(styles, ";")
       |> Enum.at(-2)
