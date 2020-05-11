@@ -280,6 +280,7 @@ defmodule Rut.Extract do
         [matched] ->
           phone_number_2 = content(matched)
             |> String.replace(" ", "")
+            |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :phone_number_2, phone_number_2)}
       end
   end
@@ -298,6 +299,8 @@ defmodule Rut.Extract do
         [matched] ->
           main_activity = content(matched)
             |> String.replace(" ", "")
+            |> String.trim_leading
+            |> String.trim_trailing
           {start_index, titles, values, Map.put(extract_info, :main_activity, main_activity)}
       end
   end
@@ -316,6 +319,8 @@ defmodule Rut.Extract do
         [matched] ->
           secondary_activity = content(matched)
             |> String.replace(" ", "")
+            |> String.trim_leading
+            |> String.trim_trailing
           {start_index, titles, values, Map.put(extract_info, :secondary_activity, [secondary_activity])}
       end
   end
@@ -336,7 +341,14 @@ defmodule Rut.Extract do
           responsibilities = Enum.map(matched, fn respons -> 
             [code, responsibility] = content(respons)
               |> String.split("-", parts: 2)
-            {"O-"<>code, responsibility}
+            code = "O-"<>code
+            {code
+              |> String.trim_leading
+              |> String.trim_trailing, 
+            responsibility
+              |> String.trim_leading
+              |> String.trim_trailing
+            }
           end)
           {start_index, titles, values, Map.put(extract_info, :responsibilities, responsibilities)}
       end
