@@ -290,7 +290,7 @@ defmodule Rut.Extract do
   """
   def main_activity({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 43)
-      |> IO.inspect(label: "TITLE")
+      # |> IO.inspect(label: "TITLE")
       |> get_xy_pos()
     find_match(values, x-15, y, 20, 20)
       |> case do
