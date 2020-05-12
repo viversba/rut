@@ -24,7 +24,7 @@ defmodule Rut.Extract do
         [matched] ->
           nit = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :nit, nit)}
       end
   end
@@ -43,7 +43,7 @@ defmodule Rut.Extract do
         [matched] ->
           dv = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :dv, dv)}
       end
   end
@@ -80,7 +80,7 @@ defmodule Rut.Extract do
         [matched] ->
           person_type_code = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :person_type_code, person_type_code)}
       end
   end
@@ -134,7 +134,7 @@ defmodule Rut.Extract do
         [matched] ->
           country_code = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :country_code, country_code)}
       end
   end
@@ -171,7 +171,7 @@ defmodule Rut.Extract do
         [matched] ->
           state_code = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :state_code, state_code)}
       end
   end
@@ -208,7 +208,7 @@ defmodule Rut.Extract do
         [matched] ->
           city_code = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :city_code, city_code)}
       end
   end
@@ -261,7 +261,7 @@ defmodule Rut.Extract do
         [matched] ->
           phone_number_1 = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :phone_number_1, phone_number_1)}
       end
   end
@@ -280,7 +280,7 @@ defmodule Rut.Extract do
         [matched] ->
           phone_number_2 = content(matched)
             |> String.replace(" ", "")
-            |> String.to_integer
+            # |> String.to_integer
           {start_index, titles, values, Map.put(extract_info, :phone_number_2, phone_number_2)}
       end
   end
@@ -290,8 +290,9 @@ defmodule Rut.Extract do
   """
   def main_activity({start_index, titles, values, extract_info}) do
     {x, y} = Enum.at(titles, 43)
+      |> IO.inspect(label: "TITLE")
       |> get_xy_pos()
-    find_match(values, x-10, y, 20, 20)
+    find_match(values, x-15, y, 20, 20)
       |> case do
         [] -> 
           IO.puts "main_activity not found"
